@@ -41,8 +41,8 @@ app.get('/handles/:handle', (request, response) => {
     }); 
 });
     // Add a new developer
-    app.post('/handles', (request, response) => {
-        pool.query('INSERT INTO Handle SET ?', request.body, (error, result) => {
+    app.post('/handles', (request, response) => { //Remove result because it was never used - Sylvia
+        pool.query('INSERT INTO Handle SET ?', request.body, (error) => { 
             if (error) throw error;
 
             response.status(201).send(`Developer added`);
